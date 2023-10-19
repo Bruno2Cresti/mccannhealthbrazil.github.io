@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Email Signature Generator StudioRX</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ec2f4e6c91.js" crossorigin="anonymous"></script>
+    <link href="css/RadioButtons.css" rel="stylesheet" />
+    <style type="text/css">
+        .required {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="https://media.licdn.com/dms/image/C4E0BAQHFdLjG7lxMLg/company-logo_200_200/0/1519901000048?e=2147483647&v=beta&t=Od-WwccY3vsErjwuboVVD89n2diAlxENSO-lFtCl7UM" width="125" height="125" />
+            </div>
+            <div class="col-sm-8">
+                <h2 class="">StudioRX Email Signature Generator</h2>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-2">
+                <label for="txtName" class="col-form-label">Name<span class="required"> *</span></label>
+            </div>
+            <div class="col-sm-10">
+                <input name="txtName" type="text" id="txtName" class="form-control" placeholder="Name and Last Name" required="" />
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-sm-2">
+                <label for="txtRoleName" class="col-form-label">Job Title<span class="required"> *</span></label>
+            </div>
+            <div class="col-sm-10">
+                <input name="txtRoleName" type="text" id="txtRoleName" class="form-control" placeholder="Senior Account Director" required="" />
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-sm-2">
+                <label for="txtMobileNo" class="col-form-label">Mobile Number</label>
+            </div>
+            <div class="col-sm-10">
+                <input name="txtMobileNo" type="text" id="txtMobileNo" class="form-control" placeholder="i.e. +55 (11) 97872 8763" />
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+                <input type="button" name="btnSubmit" value="Generate my email signature" id="btnSubmit" class="btn btn-dark" onclick="emailSignature()" />
+            </div>
+        </div>
+  
+        <div id="emailSignature" class="mt-5"></div>
+
+        <input id="Button1" style="display: none;" type="button" onclick="showhideSuccessAlert();" value="toggle success alert" />
+
+        <div class="mt-5" style="font-size: 0.6em; text-align: center">
+            &copy; 2023 StudioRX
+        </div>
+
+    </div>
+
+    <script>
+        function emailSignature() {
+            var name = document.getElementById("txtName").value;
+            var jobTitle = document.getElementById("txtRoleName").value;
+            var mobileNo = document.getElementById("txtMobileNo").value;
+
+            var signature = "<b>" + name + "</b>" + " <b>|</b> " + "<b>" + jobTitle + "</b>" + " <b>- Studio RX Brazil</b>" + "<br>";
+            signature += mobileNo + " | www.studiorx.com" + "<br>";
+            signature += "Av. Pres. Juscelino Kubitschek, 1.909. SP –  04543-907 – South tower – 19th floor" + "<br>" + "<br>";
+            signature += "<img src='https://media.licdn.com/dms/image/C4E0BAQHFdLjG7lxMLg/company-logo_200_200/0/1519901000048?e=1704931200&v=beta&t=SwtP_vzqiohExGEae4kEBYhl4tYXlINT6T8KlcFBL58' alt='Assinatura' style='width: 125px; height: 125px;'><br>";
+
+            document.getElementById("emailSignature").innerHTML = signature;
+        }
+    </script>
+</body>
+</html>
